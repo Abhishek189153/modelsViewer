@@ -10,7 +10,15 @@ const upload = multer({
   },
 
   fileFilter: (req, file, cb) => {
-    if (file.mimetype === "model/gltf-binary") {
+    const allowedMimeTypes = [
+      "model/gltf-binary",
+      "application/octet-stream",
+    ];
+
+    const isGLB =
+      file.originalname.toLowerCase().endsWith(".glb");
+
+    if (allowedMimeTypes.includes(file.mimetype) || isGLB) {
       cb(null, true);
     } else {
       cb(new Error("Only .glb files are allowed"));
