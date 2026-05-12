@@ -56,7 +56,7 @@ exports.loginUser = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // find user
+    
     const user = await User.findOne({ email });
 
     if (!user) {

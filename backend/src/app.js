@@ -3,6 +3,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const authRoutes = require("./routes/authRoutes");
+const modelRoutes = require("./routes/modelRoutes");
 
 const connectDB = require("./config/db");
 
@@ -16,6 +17,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 app.use("/api/auth", authRoutes);
+app.use("/api/models", modelRoutes);
 
 app.get("/", (req, res) => {
   res.json({
