@@ -1,5 +1,6 @@
 const Model = require("../models/Model");
 const s3 = require("../config/s3");
+const { DeleteObjectCommand } = require("@aws-sdk/client-s3");
 
 
 
@@ -91,6 +92,38 @@ exports.saveCameraState = async (req, res) => {
       model,
     });
   } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+exports.deleteModel = async (req, res) => {
+  try {
+
+    const model = await Model.findById(req.params.id);
+
+    if (!model) {
+      return res.status(404).json({
+        success: false,
+        message: "Model not found",
+      });
+    }
+
+    // delete from DB
+    await model.deleteOne();
+
+    res.status(200).json({
+      success: true,
+      message: "Model deleted successfully",
+    });
+
+  } catch (error) {
+
+    console.log(error);
+
     res.status(500).json({
       success: false,
       message: error.message,
