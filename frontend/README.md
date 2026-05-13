@@ -9,13 +9,13 @@ A full-stack MERN application for uploading, visualizing, and interacting with 3
 Frontend URL:
 
 ```bash
-ADD_FRONTEND_URL_HERE
+https://models-viewer-nine.vercel.app/
 ```
 
 Backend URL:
 
 ```bash
-ADD_BACKEND_URL_HERE
+https://modelsviewer.onrender.com
 ```
 
 ---
@@ -162,7 +162,7 @@ AWS_BUCKET_NAME=YOUR_BUCKET
 ## Frontend `.env`
 
 ```env
-VITE_API_URL=http://localhost:5000/api
+VITE_API_URL=https://modelsviewer.onrender.com
 ```
 
 ---
@@ -172,7 +172,7 @@ VITE_API_URL=http://localhost:5000/api
 ## Clone Repository
 
 ```bash
-git clone YOUR_GITHUB_REPO
+git clone https://github.com/Abhishek189153/modelsViewer.git
 ```
 
 ---
@@ -280,7 +280,7 @@ DELETE /api/models/:id
 Add Loom video link here:
 
 ```bash
-ADD_LOOM_VIDEO_LINK
+https://www.loom.com/share/d6b593fe60cc43a68ab8e926817f9b3d
 ```
 
 ---
